@@ -1,0 +1,16 @@
+
+
+
+.button{
+    padding: 5px 20px;
+    border:none;
+    background-color: rgb(238, 238, 238);
+    font-size: larger;
+    border-radius: 10px;
+    transition: 0.4s  cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.button:hover{
+    scale: 105%;
+}

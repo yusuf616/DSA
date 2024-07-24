@@ -1,0 +1,15 @@
+
+
+
+.button{
+    padding: 10px 20px ;
+    border:0;
+    border-radius: 10px;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-size: large;
+    cursor: pointer;
+} 
+
+.button:hover{
+    scale:105%
+}

@@ -1,0 +1,29 @@
+
+
+
+.layout{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.header{
+    width: 100%;
+    height: 10lvh;
+    background-color: rgb(126, 126, 126);
+}
+
+.body{
+    width: 100%;
+    height: 90lvh;
+    display: flex;
+}
+
+
+
+.footer{
+    width: 100%;
+    height: 30lvh;
+    background-color: rgb(99, 99, 99);
+}
