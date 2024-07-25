@@ -3,6 +3,9 @@ import "assets/css/layout.css"
 import { Sidebar } from "components/sidebar/sidebar"
 import { useEffect, useState } from "react"
 import { Outlet, useParams } from "react-router-dom"
+import { Header } from "./header"
+import { Body } from "./body"
+import { Footer } from "./footer"
 
 
 const items=[
@@ -46,19 +49,15 @@ export const Layout=({
     
 
     return <div className=" layout " >
-        <div className=" header ">
-            {/* <button className=" button "> Click </button> */}
-        </div>  
-        <div className=" body ">
-            
-            <Sidebar style={{width:"20%"}} items={sideItems}/>
-            <div style={{width:"80%",height:"100%",overflowY:"scroll"}}>
-                {getTitle()}
-                {children||<Outlet/>}
-            </div>
-        </div>
-        <div className=" footer ">
-            AAA  
-        </div>
+        <Header/>
+        <Body>     
+            {/* <Sidebar style={{width:"20%"}} items={sideItems}/> */}
+          
+            {getTitle()}
+            {children||<Outlet/>}
+        </Body>
+        <Footer>
+            AAAA
+        </Footer>
     </div>
 }

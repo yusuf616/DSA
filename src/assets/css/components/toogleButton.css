@@ -1,0 +1,38 @@
+.toogle-button{
+    width: 50px;
+    height: 50px;
+    border: 3px solid #6201be;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 7px;
+    transition: 0.5s;
+    overflow: hidden;
+
+}
+
+.toogle-button > div{
+    height: 5px;
+    width: 100%;
+    border-radius: 8px;
+    margin: 2px;
+    border: 2px solid ;
+    border-color: inherit;
+    transition: 0.5s;
+    /* background-color: #0494b4; */
+}
+
+
+.toogle-button:hover{
+    border-color: #b463ff;
+}
+
+
+.toogle-button > .open{
+
+    transform: rotate(90deg) ;
+}
+
