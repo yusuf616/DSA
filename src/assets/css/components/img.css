@@ -1,4 +1,49 @@
 .my-img{
-    width: 100px;
-    height: 100px;
+    margin: auto;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border:3px solid #909090;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#00000000
+}
+
+.my-img-hover{
+    color:#00000000;
+    border:3px solid #909090;
+}
+.my-img-hover:hover{
+    background-color: #3e3e3e91;
+    border:0px solid #909090;
+    width: 86px;
+    height: 86px;
+    color:#eeffd3
+}
+
+.my-img > img{
+    width: 100%;
+    height: 100%;
+}
+
+.my-img-hover > .hover{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: inherit ;
+    color: inherit;
+    cursor:default;
+}
+
+
+.my-img > .hover > .edit{
+    cursor: pointer;
 }

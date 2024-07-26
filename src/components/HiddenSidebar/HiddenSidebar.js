@@ -17,3 +17,11 @@ export const Header=({children})=>{
         {children}
     </div> 
 }
+
+
+
+export const Footer=({children})=>{
+    return <div className="footer" >
+        {children}
+    </div> 
+}
