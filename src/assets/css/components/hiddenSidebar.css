@@ -46,3 +46,12 @@
     width: 100%;
     left: 0;
 }
+
+
+
+
+.hidden-sidebar > .cont > .body{
+    padding:  10px 0px  ;
+    height: calc( 100% - 150px - 200px - 15px ) ;
+    width: 100%;
+}

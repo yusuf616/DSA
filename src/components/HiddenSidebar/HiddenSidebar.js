@@ -19,6 +19,13 @@ export const Header=({children})=>{
 }
 
 
+export const Body=({children})=>{
+    return <div className=" body ">
+        {children}
+    </div>
+}
+
+
 
 export const Footer=({children})=>{
     return <div className="footer" >
