@@ -4,9 +4,12 @@ import { ToogleButton } from "components/ToogleButton/ToogleButton";
 import { useState } from "react";
 import userPhoto from "assets/images/user.png"
 import { List, ListContent, ListIcon, ListItem } from "components/List/List";
-import { FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import {IoIosSettings} from "react-icons/io"
 import { useSelector } from "react-redux";
+import { Button } from "components/buttons/Button";
+import { useNavigate } from "react-router-dom";
+import { routes } from "routes";
 
 
 
@@ -14,12 +17,18 @@ import { useSelector } from "react-redux";
 export const Header=()=>{
 
     const {user}=useSelector(state=>state);
+    const navigate=useNavigate();
    
     return ( <>
     <div className=" header " style={{position:"relative"}}>   
     </div>
     <div className=" header ">
-        {user?.id? <User/>:"Login"}
+        <div style={{height:"100%",width:"100px",display:"flex",justifyContent:"end",alignItems:"center"}}>
+            {user?.id? <User/>:<Button onClick={()=>navigate(routes?.login)} > <FaSignInAlt  style={{marginRight:8}} /> Login</Button>}
+            
+            {/* <ToogleButton isOpen={isOpen} onClick={()=>setIsOpen(prev=>!prev)}/> */}
+        </div>
+        {/* {user?.id? <User/>:<Button>Login</Button>} */}
     </div>
     </>   );
 }
@@ -47,9 +56,9 @@ const User=()=>{
     
 
     return <>
-        <div style={{height:"100%",width:"100px",display:"flex",justifyContent:"end",alignItems:"center"}}>
-            <ToogleButton isOpen={isOpen} onClick={()=>setIsOpen(prev=>!prev)}/>
-        </div>
+        {/* <div style={{height:"100%",width:"100px",display:"flex",justifyContent:"end",alignItems:"center"}}> */}
+        <ToogleButton isOpen={isOpen} onClick={()=>setIsOpen(prev=>!prev)}/>
+        {/* </div> */}
         <HiddenSidebar isOpen={isOpen} onClose={()=>setIsOpen(false)}>
             <HHeader>
                 <div>

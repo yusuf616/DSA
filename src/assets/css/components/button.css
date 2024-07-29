@@ -1,15 +1,24 @@
 
 
 
-.button{
+.my-button{
     padding: 10px 20px ;
     border:0;
-    border-radius: 10px;
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* border-radius: 10px; */
+    transition: 0.5s ;
     font-size: large;
     cursor: pointer;
+    background-color: #0000;
+    border-bottom: 2px solid ;
+    color:rgb(208, 208, 208);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
 
-.button:hover{
-    scale:105%
+.my-button:hover{
+    scale:105%;
+
+    color:rgb(122, 121, 121);
+
 }

@@ -3,6 +3,8 @@ import { BrowserRouter,Route,Routes } from "react-router-dom";
 import "assets/css/stylesItems.css"
 import { Level2 } from "pages/Level2";
 import { Level1 } from "pages/Level1";
+import { routes } from "routes";
+import { AuthLogin } from "auth/AuthLogin";
 
 export const App=()=>{
     return <>
@@ -14,6 +16,7 @@ export const App=()=>{
                     <Route path="/:param1" element={<Level1/>}/>
                     <Route path="/:param1/:param2" element={<Level2/>}/>
                 </Route>
+                <Route path={routes?.login} element={<AuthLogin/>} />
             </Routes>
         </BrowserRouter>
 

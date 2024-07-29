@@ -6,9 +6,11 @@ import "assets/css/components/button.css"
 export const Button=({
     children,
     title="",
-    onClick=()=>{}
+    onClick=()=>{},
+    style={},
+    type="button"
 })=>{
-    return <button className=" button " title={title} onClick={onClick}>
+    return <button type={type} style={{...style}}  className=" my-button " title={title} onClick={onClick}>
         {children}
     </button>
 }
