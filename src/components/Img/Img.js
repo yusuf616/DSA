@@ -11,6 +11,17 @@ export const Img=({
     hover=false
 })=>{
 
+
+    let tempSrc=null
+
+
+    try{
+        tempSrc= URL.createObjectURL(src); 
+    }catch{
+        tempSrc=src
+    }
+
+
     const styles={
         rounded:{
             "none":{
@@ -30,7 +41,7 @@ export const Img=({
             ...styles["rounded"]?.[rounded]||{}
         }} 
     >
-        <img className=" img " alt={alt} src={src} />
+        <img className=" img " alt={alt} src={tempSrc} />
         {hover&&<div className=" hover ">
             {edit&&<FaCameraRetro className=" edit " size={25}/>} 
         </div>}

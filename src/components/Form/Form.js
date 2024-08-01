@@ -18,6 +18,7 @@ export const Form=({
         const values={}
         let i=0;
         Object.values(e?.target)?.filter(item=>item?.id==="input")?.forEach((item)=>{values[item?.name||"input-"+(++i)]=item?.value});
+        Object.values(e?.target)?.filter(item=>item?.id==="input-img")?.forEach((item)=>{values[item?.name||"input-"+(++i)]=item?.value});
         onSubmit({
             values
         })
@@ -40,7 +41,12 @@ export const FormInput=({
     placeholder="",
     disabled=false,
     name="",
-    style={fontSize:20,marginTop:20}
+    style={fontSize:20,marginTop:20},
+    pattern=null,
+    autoFocus=false,
+    required=false,
+    type="text",
+    title=""
 })=>{
-    return <Input style={style} name={name} placeholder={placeholder} disabled={disabled} value={value} onChange={onChange} onKeyDown={onKeyDown} />
+    return <Input title={title} type={type} required={required} autoFocus={autoFocus} {...pattern?{pattern}:{}} style={style} name={name} placeholder={placeholder} disabled={disabled} value={value} onChange={onChange} onKeyDown={onKeyDown} />
 }

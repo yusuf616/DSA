@@ -11,6 +11,8 @@ export const Button=({
     type="button"
 })=>{
     return <button type={type} style={{...style}}  className=" my-button " title={title} onClick={onClick}>
-        {children}
+        <abbr title="AAA">
+            {children}
+        </abbr> 
     </button>
 }

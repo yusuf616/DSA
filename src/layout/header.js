@@ -24,7 +24,7 @@ export const Header=()=>{
     </div>
     <div className=" header ">
         <div style={{height:"100%",width:"100px",display:"flex",justifyContent:"end",alignItems:"center"}}>
-            {user?.id? <User/>:<Button onClick={()=>navigate(routes?.login)} > <FaSignInAlt  style={{marginRight:8}} /> Login</Button>}
+            {user?.username? <User/>:<Button onClick={()=>navigate(routes?.login)} > <FaSignInAlt  style={{marginRight:8}} /> Login</Button>}
             
             {/* <ToogleButton isOpen={isOpen} onClick={()=>setIsOpen(prev=>!prev)}/> */}
         </div>
@@ -36,6 +36,7 @@ export const Header=()=>{
 
 const User=()=>{
 
+    const {user}=useSelector(state=>state);
     const [isOpen,setIsOpen]=useState();
 
     const list =[
@@ -62,10 +63,10 @@ const User=()=>{
         <HiddenSidebar isOpen={isOpen} onClose={()=>setIsOpen(false)}>
             <HHeader>
                 <div>
-                    <Img hover={true} rounded="full" src={userPhoto}/>
+                    <Img hover={true} rounded="full" src={user?.image||userPhoto}/>
                     <div style={{marginTop:"1rem",textAlign:"center"}}>
-                        <h3>User Name</h3>
-                        <a href="mailto:user@gmail.com" >user@gmail.com </a>
+                        <h3>{user?.username}</h3>
+                        <a href="mailto:user@gmail.com" >{user?.email} </a>
                     </div>
                 </div>
             </HHeader>

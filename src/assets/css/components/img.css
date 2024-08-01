@@ -27,6 +27,7 @@
 .my-img > img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .my-img-hover > .hover{

@@ -2,6 +2,8 @@
 
 import "assets/css/components/input.css"
 import { useEffect, useState } from "react"
+import { Text } from "./Text";
+import { Img } from "./Img";
 
 export const Input=({
     onChange=()=>{},
@@ -10,23 +12,40 @@ export const Input=({
     placeholder="",
     disabled=false,
     name="",
-    style={}
-    
+    style={},
+    pattern=null,
+    autoFocus=false,
+    required=false,
+    autoComplete="off",
+    type="text",
+    multiple=false,
+    title=""
 })=>{
 
-    const [localValue,setLocalValue]=useState("");
-
-    const handleChange=(e)=>{
-        setLocalValue(e?.target?.value);
-        onChange(e);
+    var props={
+        onChange,
+        value,
+        onKeyDown,
+        placeholder,
+        disabled,
+        name,
+        style,
+        pattern,
+        autoFocus,
+        required,
+        autoComplete,
+        type,
+        multiple,
+        title
     }
 
-    useEffect(()=>{
-        if(value!==localValue){
-            setLocalValue(value)
-        }
-    },[value]);
+    const Types={
+        "text":<Text {...props} />,
+        "password":<Text {...props}/>,
+        "img":<Img {...props}/>
+    }
 
 
-    return  <input id="input" style={style} name={name} disabled={disabled}  onKeyDown={onKeyDown} className=" input " value={localValue} onChange={handleChange} placeholder={placeholder}  />
+    return Types[type] 
+    // <input type={type}  autoComplete={autoComplete} autoFocus={autoFocus} required={required}  pattern={pattern} id="input" style={style} name={name} disabled={disabled}  onKeyDown={onKeyDown} className=" input " value={localValue} onChange={handleChange} placeholder={placeholder}  />
 }
