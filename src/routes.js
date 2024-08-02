@@ -1,7 +1,9 @@
 
 
 export const routes={
-    login:"/login"
+    login:"/login",
+    dsa:"/dsa",
+    cpp:"/cpp"
 }
 
 

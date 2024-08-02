@@ -23,7 +23,7 @@ export const AuthLogin=()=>{
 
 
     useEffect(()=>{
-        console.log(user);
+
         if(user?.username){
             navigate("/");
         }
@@ -31,16 +31,12 @@ export const AuthLogin=()=>{
 
 
     const handleSubmit=(e)=>{
-
         e.values["image"]=image;
-        
         Alert({content:"Success",color:"success"});
-        
         dispatch({
             type:SET_USER,
             payload:e?.values
         });
-    
     }
 
 

@@ -35,7 +35,6 @@
 }
 
 .container{
-
     display: flex;
     margin: auto;
     width: 100%;
@@ -43,7 +42,7 @@
     background-color: white;
 }
 
-
+/* 
 @media only screen and (min-width:768px){
     .container{
         width: 90%;
@@ -54,4 +53,4 @@
     .container{
         width: 85%;
     }
-}
+} */

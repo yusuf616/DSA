@@ -3,7 +3,7 @@ import "assets/css/components/list.css"
 
 export const List=({children,items=[]})=>{ //Unordered HTML List
     return <ul className=" list ">
-        {items?.map((item,index)=><ListItem onClick={()=>item?.onClick?.()} key={index} >
+        {items?.map((item,index)=><ListItem selected={item?.selected}  onClick={()=>item?.onClick?.()} key={index} >
             <ListIcon>
                 {item?.icon}
             </ListIcon>
@@ -17,9 +17,9 @@ export const List=({children,items=[]})=>{ //Unordered HTML List
 
 
 
-export const ListItem=({children, onClick=()=>{}})=>{
-    return <li >
-        <div className=" cont " onClick={onClick} >
+export const ListItem=({children, onClick=()=>{},selected=false})=>{
+    return <li className={selected&&" li-selected "} >
+        <div className={" cont "} onClick={onClick} >
             {children}
         </div>
     </li>

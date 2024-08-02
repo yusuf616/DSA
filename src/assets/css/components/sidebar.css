@@ -3,15 +3,7 @@
 
 
 .sidebar{
-    height: 100%;
+    height: calc( 100% - 4px ) ;
     width: 100%;
-    background-color: aquamarine;
-    
-}
-
-.item{
-    cursor: pointer;
-    padding: 10px;
-    background-color: antiquewhite;
-
+    border: 2px solid #eee
 }

@@ -6,10 +6,11 @@ import userPhoto from "assets/images/user.png"
 import { List, ListContent, ListIcon, ListItem } from "components/List/List";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import {IoIosSettings} from "react-icons/io"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "components/buttons/Button";
 import { useNavigate } from "react-router-dom";
 import { routes } from "routes";
+import { AuthLogout } from "auth/AuthLogout";
 
 
 
@@ -37,6 +38,7 @@ export const Header=()=>{
 const User=()=>{
 
     const {user}=useSelector(state=>state);
+    const dispatch=useDispatch()
     const [isOpen,setIsOpen]=useState();
 
     const list =[
@@ -51,7 +53,7 @@ const User=()=>{
         {
             icon:<FaSignOutAlt size={20}/>,
             content:"Logout",
-            onClick:()=>{console.log("logout")}
+            onClick:()=>{ AuthLogout({dispatch}) }
         }
     ]
     

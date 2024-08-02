@@ -1,7 +1,7 @@
 
 .list {
     width: calc( 100% ) ;
-    max-width: 300px;
+    /* max-width: 300px; */
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -21,19 +21,38 @@
     color: rgb(89, 89, 89);
 }
 
-.list > li > .cont{
-    color: inherit;
-    display: flex;
-    align-items: center;
-    user-select: none;
+.list > .li-selected{
+    padding-left: 30px;  
+    background-color: rgb(67, 67, 67);
+    color:rgb(223, 223, 223);
+    border-color: black;
 }
 
+.list > .li-selected:hover{
+    padding-left: 30px;  
+    background-color: rgb(67, 67, 67);
+    color:rgb(223, 223, 223);
+    border-color: black;
+}
 
 .list > li:hover{
     background-color: rgb(209, 209, 209);
     color:rgb(48, 48, 48);
     border-color: black;
 }
+
+.list > li > .cont{
+
+    color: inherit;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    
+}
+
+
+
+
 
 
 .list > li > .cont > .icon{
@@ -43,8 +62,11 @@
     align-items: center;
 }
 
-.list > li > .cont > .l-content{
+.list > li > .cont > div.l-content{
+
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
     width: calc( 100% - 40px);
-    display: flex;
-    align-items: center;
+
 }
