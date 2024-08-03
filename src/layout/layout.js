@@ -1,14 +1,12 @@
 
 import "assets/css/layout.css"
 import { Sidebar } from "components/sidebar/sidebar"
-import { useState } from "react"
-import { Outlet , useNavigate, useParams } from "react-router-dom"
+import { Outlet  } from "react-router-dom"
 import { Header } from "./header"
 import { Body } from "./body"
 import { Footer } from "./footer"
-import { SiGoogledataproc } from "react-icons/si"
-import { TbBrandCpp } from "react-icons/tb";
-import { routes } from "routes"
+import { useSelector } from "react-redux"
+
 
 
 
@@ -17,33 +15,17 @@ export const Layout=({
     children
 })=>{
 
-    const [sideItems,setSideItems]=useState([]);
 
-    const {param1}=useParams();
-    const navigate=useNavigate();
-
-    console.log(param1);
-
-    const list=[
-        {
-            content:" DSA (Data Structures and Algorithms)",
-            icon:<SiGoogledataproc/>,
-            onClick:()=>{navigate(routes?.dsa)},
-            selected:param1==="dsa"
-        },
-        {
-            content:" C++ ",
-            icon:< TbBrandCpp/>,
-            onClick:()=>{navigate(routes?.cpp)},
-            selected:param1==="cpp"
-        }
-    ]
+    const {sidebarItems}=useSelector(state=>state);
 
     return <div className=" layout " >
         <Header/>
-        <Body>     
-            <Sidebar style={{width:"20%"}} items={list}/>
-            {children||<Outlet/>}
+        <Body>   
+            <Sidebar style={{width:sidebarItems?.length?"300px":"0"}} />
+            <div style={{display:"flex",height:"100%",width:sidebarItems?.length?" calc(100% - 300px) ":"0"}}>
+                {children||<Outlet/>}
+            </div>
+
         </Body>
         <Footer>
         </Footer>

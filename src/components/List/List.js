@@ -18,8 +18,8 @@ export const List=({children,items=[]})=>{ //Unordered HTML List
 
 
 export const ListItem=({children, onClick=()=>{},selected=false})=>{
-    return <li className={selected&&" li-selected "} >
-        <div className={" cont "} onClick={onClick} >
+    return <li  onClick={onClick} className={selected?" li-selected ":""} >
+        <div className={" cont "} >
             {children}
         </div>
     </li>

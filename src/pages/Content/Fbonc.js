@@ -1,6 +1,8 @@
+import { Alert } from "components/Alert/Alert";
 import { Box } from "components/Box/Box";
 import { Button } from "components/buttons/Button";
 import { Input } from "components/Input/Input"
+import { Page } from "components/PageContent/Page";
 import { useEffect, useState } from "react"
 
 
@@ -16,7 +18,7 @@ export const Fbonc=()=>{ // Fibonacci
 
     useEffect(()=>{
         if(number>30){
-            alert("the number can not to be biger then 30");
+            Alert({content:"the number can not to be biger then 30",color:"worning"});
             setNumber("30");
         }
     },[number]);
@@ -66,8 +68,10 @@ export const Fbonc=()=>{ // Fibonacci
     },[start,counter]);
 
 
-    return <div>
-        <Input disabled={start}   placeholder=" Enter Number " value={number}  onChange={handleChange} onKeyDown={(e)=>{if(e?.key==="Enter"&&number?.length){setStart(true)}}} />
+    return <Page >
+        <div>
+            <Input  disabled={start}   placeholder=" Enter Number " value={number}  onChange={handleChange} onKeyDown={(e)=>{if(e?.key==="Enter"&&number?.length){setStart(true)}}} />
+        </div>
         <Button onClick={()=>number?.length&&setStart(prev=>!prev)} >{start?"stop":"start"}</Button>
         <div>
         {counter?.map((c,index)=><Box className={ counter?.length-index<=2? " animat-box ":""}  key={index}>
@@ -82,7 +86,7 @@ export const Fbonc=()=>{ // Fibonacci
         </div>
 
         
-    </div>
+    </Page>
 
 
 }

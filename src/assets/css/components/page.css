@@ -1,0 +1,6 @@
+.page{
+    width: 100%;
+    height: calc(100% - 16px);
+    padding: 8px;
+    /* background-color: aliceblue; */
+}
