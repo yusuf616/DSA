@@ -9,6 +9,7 @@ import { SiGoogledataproc } from "react-icons/si"
 import { TbBrandCpp } from "react-icons/tb";
 import { routes } from "routes"
 import { SetSidebarItems } from "components/sidebar/SetSidebarItems"
+import { Title } from "components/PageContent/Page"
 
 export const Home=()=>{
 

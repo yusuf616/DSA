@@ -13,6 +13,7 @@ export const Box=({
 
     const [scale,setScale]=useState(0)
     const contentRef=useRef();
+    
     useEffect(()=>{
         let a=setTimeout(()=>{
             setScale(1)
@@ -25,9 +26,6 @@ export const Box=({
         },30);
 
     },[]);
-
-
-    console.log(scale);
 
     // console.log(scale);
     return <div className={" box "} style={{...style}}>

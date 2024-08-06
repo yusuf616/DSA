@@ -21,10 +21,20 @@ export const Text=(props)=>{
         title
     }=props;
 
+    const set=(e)=>{
+        setLocalValue(e?.target?.value||"");
+        onChange(e);
+    }
+
 
     const handleChange=(e)=>{
-        setLocalValue(e?.target?.value);
-        onChange(e);
+        switch(type){
+            case "number":
+                isNumber(e?.target?.value)&&set(e);
+                break;
+            default:
+                set(e);
+        }
     }
 
 
@@ -34,6 +44,20 @@ export const Text=(props)=>{
         }
     },[value]);
 
-    return  <input title={title} type={type}  autoComplete={autoComplete} autoFocus={autoFocus} required={required}  pattern={pattern} id="input" style={style} name={name} disabled={disabled}  onKeyDown={onKeyDown} className=" input " value={localValue} onChange={handleChange} placeholder={placeholder}  />
+    return  <input title={title} type={type==="password"?"password":"text"}  autoComplete={autoComplete} autoFocus={autoFocus} required={required}  pattern={pattern} id="input" style={style} name={name} disabled={disabled}  onKeyDown={onKeyDown} className=" input " value={localValue} onChange={handleChange} placeholder={placeholder}  />
     
+}
+
+
+
+
+const isNumber=(e)=>{
+    try{
+        if((e?.length===0)||(parseInt(e)!=="NaN" && e?.length ===(parseInt(e)+"")?.length) )
+            return true
+        else 
+            return false
+    }catch{
+        return false
+    }
 }

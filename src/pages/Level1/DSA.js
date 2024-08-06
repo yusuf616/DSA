@@ -1,6 +1,7 @@
 import { SetSidebarItems } from "components/sidebar/SetSidebarItems"
+import { Arrays } from "pages/Content/Arrays/Arrays";
 import { Fbonc } from "pages/Content/Fbonc";
-import { FaFaucet } from "react-icons/fa"
+import { FaFaucet, FaList } from "react-icons/fa"
 import { Outlet, useNavigate, useParams } from "react-router-dom"
 
 
@@ -22,13 +23,22 @@ export const DSA=()=>{
             icon:<FaFaucet/>,
             onClick:()=>{navigate("./fbonc")},
             selected:selectedItem("fbonc")
+        },
+        {
+            content:"Arrays",
+            icon:<FaList/>,
+            onClick:()=>{navigate("./arrays")},
+            selected:selectedItem("arrays")
         }
     ]
 
-    const Pages={
-        "fbonc":<Fbonc/>
-    }
 
+
+    const Pages={
+        "fbonc":<Fbonc/>,
+        "arrays":<Arrays/>
+    }
+    
     return <>
         <SetSidebarItems items={list} removeItems={false}/>
         {Pages?.[param2]}

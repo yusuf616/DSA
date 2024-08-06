@@ -14,7 +14,10 @@ export const App=()=>{
                 <Route element={<Layout/>}>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/:param1" element={<Level1/>}>
-                        <Route path="/:param1/:param2" />
+                        <Route path="/:param1/:param2" >
+                            <Route path="/:param1/:param2/:param3" />
+                        
+                        </Route>
                     </Route>
                 </Route>
                 <Route path={routes?.login} element={<AuthLogin/>} />

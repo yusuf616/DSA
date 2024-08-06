@@ -40,12 +40,11 @@ export const Input=({
     }
 
     const Types={
-        "text":<Text {...props} />,
-        "password":<Text {...props}/>,
-        "img":<Img {...props}/>
+        "img":<Img {...props}/>,
+        "defualt":<Text {...props}/>,
     }
 
 
-    return Types[type] 
+    return Types[type]||Types["defualt"]
     // <input type={type}  autoComplete={autoComplete} autoFocus={autoFocus} required={required}  pattern={pattern} id="input" style={style} name={name} disabled={disabled}  onKeyDown={onKeyDown} className=" input " value={localValue} onChange={handleChange} placeholder={placeholder}  />
 }
