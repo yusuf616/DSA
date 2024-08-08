@@ -1,15 +1,15 @@
 
 
 import "assets/css/layout.css"
-import { Sidebar } from "components/sidebar/sidebar"
-import { useState } from "react"
-import { Outlet , useNavigate, useParams } from "react-router-dom"
+
+import { useNavigate, useParams } from "react-router-dom"
 
 import { SiGoogledataproc } from "react-icons/si"
 import { TbBrandCpp } from "react-icons/tb";
 import { routes } from "routes"
 import { SetSidebarItems } from "components/sidebar/SetSidebarItems"
-import { Title } from "components/PageContent/Page"
+import { Card } from "components/Card/Card";
+// import { Title } from "components/PageContent/Page"
 
 export const Home=()=>{
 
@@ -33,6 +33,7 @@ export const Home=()=>{
 
     return (<>
         <SetSidebarItems items={list}/>  
-        Home
+        <Card>
+        </Card>
     </>);
 }

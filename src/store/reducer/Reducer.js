@@ -3,7 +3,8 @@ import * as Actions from '../actions/Actions'
 
 const initialState = {
     user: {},
-    sidebarItems:[]
+    sidebarItems:[],
+    score:{},
 }
 
 
@@ -22,7 +23,8 @@ export const reducer = (state = { ...initialState}, action) => {
             return {...newState,user: action?.payload}
         case Actions.SET_SIDEBAR_ITEMS:
             return {...newState,sidebarItems:action.payload}
-
+        case Actions.SET_SCORE:
+            return {...newState,score:action.payload}
         default:
             return newState
     }

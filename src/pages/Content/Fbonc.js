@@ -87,7 +87,7 @@ export const Fbonc=()=>{ // Fibonacci
             </div>
             <Button onClick={()=>number?.length&&setStart(prev=>!prev)} >{start?"stop":"start"}</Button>
             <div>
-            {counter?.map((c,index)=><Box className={ counter?.length-index<=2? " animat-box ":""}  key={index}>
+            {counter?.map((c,index)=><Box className={ counter?.length-index<=2? " animat-box blue-box ":""}  key={index}>
                 <div style={{position:"absolute" ,top:10,left:10}}>{index+1}</div>
                 <div style={{textAlign:"center"}}>
                     <div>{index>1?(counter[index-2]+" + "+counter[index-1]):""}</div>

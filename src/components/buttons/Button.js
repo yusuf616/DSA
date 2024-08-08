@@ -8,11 +8,12 @@ export const Button=({
     title="",
     onClick=()=>{},
     style={},
-    type="button"
+    type="button",
+    className=""
 })=>{
-    return <button type={type} style={{...style}}  className=" my-button " title={title} onClick={onClick}>
-        <abbr title="AAA">
-            {children}
-        </abbr> 
+    return <button type={type} style={{...style}}  className={" my-button "+className} title={title} onClick={onClick}>
+       
+        {children}
+        
     </button>
 }

@@ -13,7 +13,7 @@ export const Box=({
 
     const [scale,setScale]=useState(0)
     const contentRef=useRef();
-    
+
     useEffect(()=>{
         let a=setTimeout(()=>{
             setScale(1)
@@ -29,8 +29,8 @@ export const Box=({
 
     // console.log(scale);
     return <div className={" box "} style={{...style}}>
-        <div className="sub-box">
-            <div ref={contentRef} className={( scale && className )+" content "}>
+        <div className="sub-box "  >
+            <div ref={contentRef} style={{border:style?.border}} className={( scale && className )+" content "}>
                 {children} 
             </div>
         </div>

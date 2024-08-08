@@ -1,5 +1,6 @@
 import { Box } from "components/Box/Box";
 import { Button } from "components/buttons/Button";
+import { ButtonGroup } from "components/buttons/ButtonGroup";
 import { Input } from "components/Input/Input"
 import { Content,Page} from "components/PageContent/Page"
 import { useEffect, useRef, useState } from "react";
@@ -13,20 +14,25 @@ export const MinMax=()=>{
     const [start,setStart]=useState(false);
     const [number,setNumber]=useState("");
     const [numbersArray,setNumbersArray]=useState([]);
+    const [finesh,setFinesh]=useState(false);
     const numbersInterval=useRef();
-    const searchInterval=useRef();
-    const activeIndexRef=useRef(1)
+    const searchTimeout=useRef();
+    const activeIndexRef=useRef(0)
     
     const [activeBox,setActiveBox]=useState(null);
     const [selectedBox,setSelectedBox]=useState(null);
+
+    const [minmax,setMinmax]=useState(null);
 
 
 
 
     useEffect(()=>{
         
-        if(!(numbersArray?.length < number) ){
+        if(number&&!(numbersArray?.length < number) ){
+            setFinesh(false);
             clearInterval(numbersInterval.current)
+            activeIndexRef.current=1
             setActiveBox(numbersArray?.[activeIndexRef?.current]);
             setSelectedBox(numbersArray?.[0]);
         }
@@ -49,17 +55,44 @@ export const MinMax=()=>{
 
     
     useEffect(()=>{
-        if(activeBox){
-            searchInterval.current= setInterval(()=>{
-                if(selectedBox?.value<activeBox?.value){
-                    setSelectedBox(activeBox);
-                }
-                activeIndexRef.current=activeIndexRef.current+1
-                setActiveBox();
-            },1000)
+        
+        if(activeIndexRef.current<(numbersArray?.length-1)){
+            if(activeBox){
+                searchTimeout.current= setTimeout(()=>{
+                    
+                    console.log(minmax);
+                    switch(minmax?.name){
+                        case "min":
+                            if(selectedBox?.value>activeBox?.value){
+                                setSelectedBox(activeBox);
+                            }
+                            break;
+                        case "max":
+                            if(selectedBox?.value<activeBox?.value){
+                                setSelectedBox(activeBox);
+                            }
+                            break;
+                        default :
+                            break;
+
+                    }
+                    
+                    activeIndexRef.current=activeIndexRef.current+1
+                    setActiveBox(numbersArray?.[activeIndexRef?.current]);
+                },3000)
+            }
+        }else if(activeIndexRef.current) {
+
+            clearTimeout(searchTimeout.current);
+            searchTimeout.current=setTimeout(()=>{
+                activeIndexRef.current&&setFinesh(true);
+                setStart(false);
+            },3000)
         }
 
-        return ()=>clearInterval(searchInterval)
+
+
+        return ()=>clearInterval(searchTimeout.current)
     },[activeBox])
 
 
@@ -83,14 +116,37 @@ export const MinMax=()=>{
                 }} />
                 <Button onClick={()=>setStart(prev=>!prev)} >{start?"stop":"start"}</Button>
                 <div className=" center "  >
-                    Selected Value : {selectedBox?.value}
+                      
+                    <Box className=" green-box " style={{width:40,height:40}} >
+                        {activeBox?.value}
+                    </Box> 
+                    <Box className=" orange-box " style={{width:40,height:40,border:"none"}} > 
+                        <h1> {minmax?.name==="max"?">":"<"} </h1> 
+                    </Box>  
+                    
+                    <Box style={{width:40,height:40}} className=" red-box "  > 
+                        {selectedBox?.value} 
+                    </Box> 
                 </div>
+
+                {finesh&&<Box style={{width:40,height:40}} className=" center " >  End</Box>}
+                <ButtonGroup 
+                    buttons={[
+                        {title:"Max",id:1,name:"max"},
+                        {title:"Min",id:2,name:"min"},
+                    ]}
+                    onClick={(btn)=>{setMinmax(btn)}}
+                    activeButton={minmax||{title:"Max",id:1,name:"max"}}
+                />
+
+
+                
             </div>
 
 
-            {numbersArray?.map((n,index)=><Box className={
-                    (activeBox?.id===n?.id&&" animat-box ")+
-                    (selectedBox?.id===n?.id&& " select-red ")
+            {numbersArray?.map((n,index)=><Box style={{width:50, height:50}} className={
+                    (activeBox?.id===n?.id ? " animat-box green-box ":"")+
+                    (selectedBox?.id===n?.id&& " red-box  ")
                 }  
                 key={index}
             >

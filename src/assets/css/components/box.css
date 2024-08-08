@@ -31,7 +31,6 @@
   
 }
 
-
 .animat-box  {
     animation: animat 1s;
     animation-iteration-count: infinite;
@@ -39,16 +38,78 @@
   @keyframes animat {
     from {
         scale: 100%;
-        background-color: #ffffff00;
+        /* background-color: #ffffff00; */
     }
     50%{
         scale: 98% ;
-        background-color: #bbebff4d;
+        background-color: #ffffff00;
 
     }
     100%{
         scale:100%;
-        background-color: #ffffff00;
+        /* background-color: #ffffff00; */
     }
-  }
+}
+
+
+
+
+
+
+
+.red-box{
+    background-color: rgb(255, 227, 227);
+    border-color: #c30000 ;
+    color: #ff2323;
+}
+
+.red-box h1{
+    color: #790000;
+}
+
+
+.green-box{
+    background-color: rgb(231, 255, 227);
+    border-color: #00c30a ;
+    color: #27c319;
+}
+
+.green-box h1{
+    color: #00790e;
+}
+
+
+.blue-box{
+    background-color: rgb(227, 244, 255);
+    border-color: #0051c3 ;
+    color: #239cff;
+}
+
+.blue-box h1{
+    color: #003b79;
+}
+
+
+.orange-box{
+    background-color: rgb(255, 241, 227);
+    border-color: #c37200 ;
+    color: #ffa023;
+}
+
+.orange-box h1{
+    color: #793b00;
+}
+
+
+.yellow-box{
+    background-color: rgb(255, 254, 227);
+    border-color: #c3b900 ;
+    color: #ffe523;
+}
+
+.yellow-box h1{
+    color: #796b00;
+}
+
+
 
