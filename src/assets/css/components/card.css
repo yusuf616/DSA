@@ -1,9 +1,52 @@
 
 
 .card{
-    width: 200px ;
-    height: 200px;
+    width: 15rem;
+    height: 15rem;
+    padding: .5rem;
     border-radius: 15px;
     box-shadow: 0px  0px 3px 1px #ccc ;
     border: 1px solid #aaa;
 }
+
+
+.card > .icon{ 
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 5rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    border: 0.3rem solid #959595;
+}
+
+.card > .title{
+    color:#333;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    height: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+
+.card > .cont{
+    color:#b0aeae;
+    height: 4rem;
+    /* background-color: #b0aeae; */
+   
+}
+
+.card > .btns{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: calc( 15rem - 1rem - 1rem - 1rem - 5rem - 4rem );
+    /* background-color: #959595; */
+}
+
+
+
